@@ -56,11 +56,11 @@ http://digitaled.ru/freeapi/public/api/detail_list
     
     <script language="javascript" type="text/javascript">
         function change_method(){
-           if ( $('#form-test').attr('method') != 'null' ) {
-            $('#form-test').attr('method',$( 'select#method option:selected' ).text());
-            $('#form-test').attr('action','_'+$( 'select#method option:selected' ).text()+'.php');
-            $('#submit_button').attr('onclick','submit_'+$( 'select#method option:selected' ).text()+'();');
-           }
+            if ($( 'select#method option:selected' ).text() != '[ change method ]') {
+                $('#form-test').attr('method',$( 'select#method option:selected' ).text());
+                $('#form-test').attr('action','_'+$( 'select#method option:selected' ).text()+'.php');
+                $('#submit_button').attr('onclick','submit_'+$( 'select#method option:selected' ).text()+'();');
+            }
         }
         
         function submit_get(){
@@ -88,6 +88,8 @@ http://digitaled.ru/freeapi/public/api/detail_list
             var value1 = $("#value1").attr("value");
             var value2 = $("#value2").attr("value");
 
+            $("#result").css('border: 1px solid #984C24');
+            
             $.post('_post.php', {url:url,param1:value1,param2:value2}, function(data){
                 $("#result").text(data);
             });
