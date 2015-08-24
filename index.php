@@ -87,8 +87,6 @@ http://digitaled.ru/freeapi/public/api/detail_list
 
             var value1 = $("#value1").attr("value");
             var value2 = $("#value2").attr("value");
-
-            $("#result").css('border: 1px solid #984C24');
             
             $.post('_post.php', {url:url,param1:value1,param2:value2}, function(data){
                 $("#result").text(data);
