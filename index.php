@@ -56,35 +56,39 @@ http://digitaled.ru/freeapi/public/api/detail_list
     
     <script language="javascript" type="text/javascript">
         function change_method(){
-           $('#form-test').attr('method',$( 'select#method option:selected' ).text());
-           $('#form-test').attr('action','_'+$( 'select#method option:selected' ).text()+'.php');
-           $('#submit_button').attr('onclick','submit_'+$( 'select#method option:selected' ).text()+'();');
+           if ( $('#form-test').attr('method') != 'null' ) {
+            $('#form-test').attr('method',$( 'select#method option:selected' ).text());
+            $('#form-test').attr('action','_'+$( 'select#method option:selected' ).text()+'.php');
+            $('#submit_button').attr('onclick','submit_'+$( 'select#method option:selected' ).text()+'();');
+           }
         }
         
         function submit_get(){
-            var url = $("#a").val();
 
-            var param1 = $("#param1").val();
-            var param2 = $("#param2").val();
+            var url    = $("#url").attr("value");
+            
+            var param1 = $("#param1").attr("value");
+            var param2 = $("#param2").attr("value");
 
-            var value1 = $("#value1").val();
-            var value2 = $("#value2").val();
+            var value1 = $("#value1").attr("value");
+            var value2 = $("#value2").attr("value");
 
-            $.get('_get.php', {a:param1,b:param2}, function(data){
+            $.get('_get.php', {url:url,param1:value1,param2:value2}, function(data){
                 $("#result").text(data);
             });
         }
         
         function submit_post(){
-            var url = $("#a").val();
+            
+            var url    = $("#url").attr("value");
 
-            var param1 = $("#param1").val();
-            var param2 = $("#param2").val();
+            var param1 = $("#param1").attr("value");
+            var param2 = $("#param2").attr("value");
 
-            var value1 = $("#value1").val();
-            var value2 = $("#value2").val();
+            var value1 = $("#value1").attr("value");
+            var value2 = $("#value2").attr("value");
 
-            $.post('_post.php', {a:param1,b:param2}, function(data){
+            $.post('_post.php', {url:url,param1:value1,param2:value2}, function(data){
                 $("#result").text(data);
             });
         }
@@ -103,16 +107,30 @@ http://digitaled.ru/freeapi/public/api/detail_list
     <option name="detail_list">http://digitaled.ru/freeapi/public/api/detail_list</option>
 </select>
 
-
 <select id="method" name="method" onchange="change_method();" />
+    <option name="null">[ change method ]</option>    
     <option name="post">post</option>
     <option name="get">get</option>
 </select>
+
+<br /><br />
+
+param1: <input type="text" id="param1" name="param1" value="app_id" />
+value1: <input type="text" id="value1" name="value1" value="52" />
+
+<br /><br />
+
+param2: <input type="text" id="param2" name="param2"  value="" />
+value2: <input type="text" id="value2" name="value2" value="" />
+
+<br /><br />
 
 <input type="button" id="submit_button" type="submit_post" onclick="submit_post();" value="Отправить" />
 
 </form>
 
+<br /><br />
+    
 <div id="result">
 
     <div id="result_inner"></div>
