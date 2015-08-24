@@ -82,6 +82,11 @@ http://digitaled.ru/freeapi/public/api/detail_list
             $.get('_get.php', {url:url,param1:param1,value1:value1,param2:param2,value2:value2,param3:param3,value3:value3,param4:param4,value4:value4,param5:param5,value5:value5}, function(data){
                 $("#result").text(data);
             });
+            
+            $('#result').css('border','1px');
+            $('#result').css('border-color','red');
+            $('#result').css('border-style','solid');
+            
         }
         
         function submit_post(){
@@ -152,7 +157,7 @@ value5: <input type="text" id="value5" name="value5" value="" />
 
 <br /><br />
 
-<input type="button" id="submit_button" type="submit_post" onclick="submit_post();" value="Отправить" />
+<input type="button" id="submit_button" onclick="submit_post();" value="Отправить" />
 
 </form>
 
