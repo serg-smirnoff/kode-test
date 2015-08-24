@@ -1,6 +1,6 @@
 <?php
     /*
-        get
+        send params via get method
     */
     
     if ( isset ($_GET["url"]) ) $url = $_GET["url"];

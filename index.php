@@ -58,6 +58,35 @@ http://digitaled.ru/freeapi/public/api/detail_list
         function change_method(){
            $('#form-test').attr('method',$( 'select#method option:selected' ).text());
            $('#form-test').attr('action','_'+$( 'select#method option:selected' ).text()+'.php');
+           $('#submit_button').attr('onclick','submit_'+$( 'select#method option:selected' ).text()+'();');
+        }
+        
+        function submit_get(){
+            var url = $("#a").val();
+
+            var param1 = $("#param1").val();
+            var param2 = $("#param2").val();
+
+            var value1 = $("#value1").val();
+            var value2 = $("#value2").val();
+
+            $.get('_get.php', {a:param1,b:param2}, function(data){
+                $("#result").text(data);
+            });
+        }
+        
+        function submit_post(){
+            var url = $("#a").val();
+
+            var param1 = $("#param1").val();
+            var param2 = $("#param2").val();
+
+            var value1 = $("#value1").val();
+            var value2 = $("#value2").val();
+
+            $.post('_post.php', {a:param1,b:param2}, function(data){
+                $("#result").text(data);
+            });
         }
     </script>
 
@@ -80,15 +109,25 @@ http://digitaled.ru/freeapi/public/api/detail_list
     <option name="get">get</option>
 </select>
 
-<input type="submit" />
+<input type="button" id="submit_button" type="submit_post" onclick="submit_post();" value="Отправить" />
 
 </form>
+
+<div id="result">
+
+    <div id="result_inner"></div>
     
+    Результат выполнения запроса
+    
+    <br />
+    
+    <?php
+
+    echo "POST = ";print_r ($_POST);
+    echo "<br />";
+    echo "GET = ";print_r ($_GET);
+
+    ?>    
+
+</div>    
 </body>
-    
-<?php
-
-print_r ($_POST);
-print_r ($_GET);
-
-?>
