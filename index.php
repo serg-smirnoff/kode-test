@@ -56,8 +56,8 @@ http://digitaled.ru/freeapi/public/api/detail_list
     
     <script language="javascript" type="text/javascript">
         function change_method(){
-           $('#form-test').attr('method',$( 'select option:selected' ).text());
-           $('#form-test').attr('action','_'+$( 'select option:selected' ).text()+'.php');
+           $('#form-test').attr('method',$( 'select#method option:selected' ).text());
+           $('#form-test').attr('action','_'+$( 'select#method option:selected' ).text()+'.php');
         }
     </script>
 
@@ -67,7 +67,7 @@ http://digitaled.ru/freeapi/public/api/detail_list
 
 <form action="_post.php" name="form-test" id="form-test" method="POST">
 
-<select name="url" />
+<select id="url" name="url" />
     <option name="list">http://digitaled.ru/freeapi/public/api/list/</option>
     <option name="api" selected="selected">http://digitaled.ru/freeapi/public/api/</option>
     <option name="password">http://digitaled.ru/freeapi/public/api/password</option>
@@ -75,7 +75,7 @@ http://digitaled.ru/freeapi/public/api/detail_list
 </select>
 
 
-<select name="method" onchange="change_method();" />
+<select id="method" name="method" onchange="change_method();" />
     <option name="post">post</option>
     <option name="get">get</option>
 </select>
