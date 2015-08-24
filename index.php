@@ -43,6 +43,8 @@ http://digitaled.ru/freeapi/public/api/detail_list
 
 <?php
 
+
+
 function sendPost(){
     
 }
@@ -51,13 +53,17 @@ function sendGet(){
     
 }
 
-
 ?>
 
-<form action="index.php" method="<?php $method; ?>">
+<form action="index.php" method="get">
 
-<input type="text" name="param1" value="null" />
-    
+<input type="text" name="url" value="" />
+
+<select type="method" name="url" value="" />
+    <option>POST</option>
+    <option>GET</option>
+</select>
+
 </form>
 
 <?php
