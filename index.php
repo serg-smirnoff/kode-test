@@ -67,9 +67,7 @@ http://digitaled.ru/freeapi/public/api/detail_list
 
 <form action="_post.php" name="form-test" id="form-test" method="POST">
 
-<input type="text" name="url" value="http://digitaled.ru/freeapi/public/api/" />
-
-<select name="method" />
+<select name="url" />
     <option name="list">http://digitaled.ru/freeapi/public/api/list/</option>
     <option name="api" selected="selected">http://digitaled.ru/freeapi/public/api/</option>
     <option name="password">http://digitaled.ru/freeapi/public/api/password</option>
