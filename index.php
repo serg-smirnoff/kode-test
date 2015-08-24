@@ -6,7 +6,8 @@
 Основной функционал приложения:
 
 • Возможность отправлять POST и GET запросы с параметрами на выбранный URL.
-• Отображение ответа с форматированием от API сервера на странице отправки запроса. Если запрос выполнен с ошибкой, показать HTTP статус запроса.
+• Отображение ответа с форматированием от API сервера на странице отправки запроса. 
+  Если запрос выполнен с ошибкой, показать HTTP статус запроса.
 • Возможность проверить наличие определенного ключа или значения по определенному ключу в ответе от сервера.
 
 Описание работы:
@@ -41,21 +42,6 @@ http://digitaled.ru/freeapi/public/api/detail_list
  */
 ?>
 
-<?php
-
-/*
- * 
- */
-
-function sendPost(){
-    
-}
-
-function sendGet(){
-    
-}
-
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
 <head>
@@ -67,18 +53,33 @@ function sendGet(){
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
     <script src="js/jquery-1.8.3.min.js" language="javascript" type="text/javascript"></script>
+    
+    <script language="javascript" type="text/javascript">
+        function change_method(){
+           $('#form-test').attr('method',$( 'select option:selected' ).text());
+           $('#form-test').attr('action','_'+$( 'select option:selected' ).text()+'.php');
+        }
+    </script>
 
 </head>
     
 <body>
 
-<form action="index.php" name="form-test" id="form-test" method="POST">
+<form action="_post.php" name="form-test" id="form-test" method="POST">
 
 <input type="text" name="url" value="http://digitaled.ru/freeapi/public/api/" />
 
-<select type="method" name="method" onchange="$('#form-test').attr('method',$( 'select option:selected' ).text())" />
-    <option name="post">POST</option>
-    <option name="get">GET</option>
+<select name="method" />
+    <option name="list">http://digitaled.ru/freeapi/public/api/list/</option>
+    <option name="api" selected="selected">http://digitaled.ru/freeapi/public/api/</option>
+    <option name="password">http://digitaled.ru/freeapi/public/api/password</option>
+    <option name="detail_list">http://digitaled.ru/freeapi/public/api/detail_list</option>
+</select>
+
+
+<select name="method" onchange="change_method();" />
+    <option name="post">post</option>
+    <option name="get">get</option>
 </select>
 
 <input type="submit" />
