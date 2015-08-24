@@ -130,22 +130,10 @@ value2: <input type="text" id="value2" name="value2" value="" />
 </form>
 
 <br /><br />
-    
-<div id="result">
 
-    <div id="result_inner"></div>
-    
-    Результат выполнения запроса
-    
-    <br />
-    
-    <?php
+<div>
+    Результат выполнения запроса   
+    <div id="result"></div>    
+</div>
 
-    echo "POST = ";print_r ($_POST);
-    echo "<br />";
-    echo "GET = ";print_r ($_GET);
-
-    ?>    
-
-</div>    
 </body>
