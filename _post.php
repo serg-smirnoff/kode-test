@@ -36,16 +36,21 @@
             curl_setopt($curl, CURLOPT_POST, true);
             curl_setopt($curl, CURLOPT_POSTFIELDS, $result_params_url);
             $out = curl_exec($curl);
-            echo "Responce: ".$out;
+            echo "Responce: <br />".$out;
             curl_close($curl);            
             
         }
+
+        echo "<br /><br />Formated (array) values or responce: <br />";        
+        $out_array = json_decode($out, true);       
+        print_r ($out_array);
         
-        echo "<br /><br />Formated values of k => v: <br />";
+        echo "<br /><br />Requested values (k => v) in responce: <br />";
         
         foreach ($_POST as $k => $v){
             if (($k != 'method') && ($k != 'url')){
-                if (strpos($out, $v) !== false ) echo $v.' - ok '; else echo $v.' - no ';
+                if ($v != '')
+                    if (strpos($out, $v) !== false ) echo $v.' - ok '; else echo $v.' - no ';
             }
         }
         

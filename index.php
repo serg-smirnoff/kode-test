@@ -109,6 +109,8 @@ http://digitaled.ru/freeapi/public/api/detail_list
     
 <body>
 
+<div class="form">
+
 <form action="_post.php" name="form-test" id="form-test" method="POST">
 
 <select id="url" name="url" />
@@ -118,7 +120,7 @@ http://digitaled.ru/freeapi/public/api/detail_list
     <option name="detail_list">http://digitaled.ru/freeapi/public/api/detail_list</option>
 </select>
 
-<select id="method" name="method" onchange="change_method();" />
+<select id="method" name="method" onchange="change_method();" class="method" />
     <option name="null">[ change method ]</option>    
     <option name="post">post</option>
     <option name="get">get</option>
@@ -151,9 +153,11 @@ value5: <input type="text" id="value5" name="value5" value="" />
 
 <br /><br />
 
-<input type="button" id="submit_button" onclick="submit_method('post');" value="Отправить" />
+<input type="button" id="submit_button" onclick="submit_method('post');" value="Отправить запрос" class="fr" />
 
 </form>
+    
+</div>
 
 <br /><br />
 

@@ -6,3 +6,16 @@ body{
     margin: 20px 0;
     padding: 12px;
 }
+
+.fr {
+    float: right;
+}
+
+.form{
+    padding: 12px;
+    width: 462px;
+}
+
+.method{
+    margin-left: 17px;
+}
