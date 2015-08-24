@@ -43,7 +43,9 @@ http://digitaled.ru/freeapi/public/api/detail_list
 
 <?php
 
-
+/*
+ * 
+ */
 
 function sendPost(){
     
@@ -54,18 +56,40 @@ function sendGet(){
 }
 
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
 
-<form action="index.php" method="get">
+    <title>Web-приложение для тестирования API сервера</title>
 
-<input type="text" name="url" value="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-<select type="method" name="url" value="" />
-    <option>POST</option>
-    <option>GET</option>
+    <script src="js/jquery-1.8.3.min.js" language="javascript" type="text/javascript"></script>
+
+</head>
+    
+<body>
+
+<form action="index.php" name="form-test" id="form-test" method="POST">
+
+<input type="text" name="url" value="http://digitaled.ru/freeapi/public/api/" />
+
+<select type="method" name="method" onchange="$('#form-test').attr('method',$( 'select option:selected' ).text())" />
+    <option name="post">POST</option>
+    <option name="get">GET</option>
 </select>
 
-</form>
+<input type="submit" />
 
+</form>
+    
+</body>
+    
 <?php
+
+print_r ($_POST);
+print_r ($_GET);
 
 ?>
