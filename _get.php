@@ -2,9 +2,7 @@
     /*
         send params via get method
     */
-    
-//    print_r ($_GET); die();
-    
+        
     if (http_response_code() == '200'){
     
         if ( isset ($_GET["url"]) ) $url = $_GET["url"];
