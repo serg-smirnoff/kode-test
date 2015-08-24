@@ -71,7 +71,7 @@ http://digitaled.ru/freeapi/public/api/detail_list
         function submit_method( method ){
            
             var url    = $("#url").attr("value");
-            
+
             var param1 = $("#param1").attr("value");
             var param2 = $("#param2").attr("value");
             var param3 = $("#param3").attr("value");

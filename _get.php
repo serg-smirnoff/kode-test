@@ -32,9 +32,17 @@
           curl_setopt($curl, CURLOPT_URL, $url.$result_params_url);
           curl_setopt($curl, CURLOPT_RETURNTRANSFER,true);
           $out = curl_exec($curl);
-          echo $out;
+          echo "Responce: ".$out;
           curl_close($curl);
 
+        }
+        
+        echo "<br /><br />Formated values of k => v: <br />";
+        
+        foreach ($_GET as $k => $v){
+            if (($k != 'method') && ($k != 'url')){
+                if (strpos($out, $v) !== false ) echo $v.' - ok '; else echo $v.' - no ';
+            }
         }
         
     } else 
