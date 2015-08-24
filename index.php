@@ -52,7 +52,10 @@ http://digitaled.ru/freeapi/public/api/detail_list
     <meta name="description" content="" />
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-
+    
+    <link href="assets/css/reset.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+  
     <script src="assets/js/jquery-1.8.3.min.js" language="javascript" type="text/javascript"></script>
     
     <script language="javascript" type="text/javascript">
@@ -83,13 +86,13 @@ http://digitaled.ru/freeapi/public/api/detail_list
 
             if ( method == 'get'){
                 $.get('_get.php', {url:url,param1:param1,value1:value1,param2:param2,value2:value2,param3:param3,value3:value3,param4:param4,value4:value4,param5:param5,value5:value5}, function(data){
-                    $("#result").text(data);
+                    $("#result").html(data);
                 });
             } 
             
             if ( method == 'post'){
                 $.post('_post.php', {url:url,param1:param1,value1:value1,param2:param2,value2:value2,param3:param3,value3:value3,param4:param4,value4:value4,param5:param5,value5:value5} , function(data){
-                    $("#result").text(data);
+                    $("#result").html(data);
                 });
             }
             

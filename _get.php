@@ -2,7 +2,7 @@
     /*
         send params via get method
     */
-        
+
     if (http_response_code() == '200'){
     
         if ( isset ($_GET["url"]) ) $url = $_GET["url"];
@@ -38,6 +38,6 @@
         }
         
     } else 
-        echo "http_pesponse_code: ";http_response_code();
+        echo "http_pesponse_code: ".http_response_code();
 
 ?>
