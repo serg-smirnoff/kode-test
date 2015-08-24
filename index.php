@@ -50,21 +50,23 @@ http://digitaled.ru/freeapi/public/api/detail_list
 
     <meta name="keywords" content="" />
     <meta name="description" content="" />
+    
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-    <script src="js/jquery-1.8.3.min.js" language="javascript" type="text/javascript"></script>
+    <script src="assets/js/jquery-1.8.3.min.js" language="javascript" type="text/javascript"></script>
     
     <script language="javascript" type="text/javascript">
+        
         function change_method(){
             if ($( 'select#method option:selected' ).text() != '[ change method ]') {
                 $('#form-test').attr('method',$( 'select#method option:selected' ).text());
                 $('#form-test').attr('action','_'+$( 'select#method option:selected' ).text()+'.php');
-                $('#submit_button').attr('onclick','submit_'+$( 'select#method option:selected' ).text()+'();');
+                $('#submit_button').attr('onclick','submit_method("'+$( 'select#method option:selected' ).text()+'");');
             }
         }
         
-        function submit_get(){
-
+        function submit_method( method ){
+           
             var url    = $("#url").attr("value");
             
             var param1 = $("#param1").attr("value");
@@ -79,37 +81,26 @@ http://digitaled.ru/freeapi/public/api/detail_list
             var value4 = $("#value4").attr("value");
             var value5 = $("#value5").attr("value");
 
-            $.get('_get.php', {url:url,param1:param1,value1:value1,param2:param2,value2:value2,param3:param3,value3:value3,param4:param4,value4:value4,param5:param5,value5:value5}, function(data){
-                $("#result").text(data);
-            });
+            if ( method == 'get'){
+                $.get('_get.php', {url:url,param1:param1,value1:value1,param2:param2,value2:value2,param3:param3,value3:value3,param4:param4,value4:value4,param5:param5,value5:value5}, function(data){
+                    $("#result").text(data);
+                });
+            } 
+            
+            if ( method == 'post'){
+                $.post('_post.php', {url:url,param1:param1,value1:value1,param2:param2,value2:value2,param3:param3,value3:value3,param4:param4,value4:value4,param5:param5,value5:value5} , function(data){
+                    $("#result").text(data);
+                });
+            }
             
             $('#result').css('border','1px');
             $('#result').css('border-color','red');
             $('#result').css('border-style','solid');
+            $('#result').css('padding','12px');
             
         }
         
-        function submit_post(){
-            
-            var url    = $("#url").attr("value");
-
-            var param1 = $("#param1").attr("value");
-            var param2 = $("#param2").attr("value");
-            var param3 = $("#param3").attr("value");
-            var param4 = $("#param4").attr("value");
-            var param5 = $("#param5").attr("value");
-
-            var value1 = $("#value1").attr("value");
-            var value2 = $("#value2").attr("value");
-            var value3 = $("#value3").attr("value");
-            var value4 = $("#value4").attr("value");
-            var value5 = $("#value5").attr("value");
-            
-            $.post('_post.php', {url:url,param1:param1,value1:value1,param2:param2,value2:value2,param3:param3,value3:value3,param4:param4,value4:value4,param5:param5,value5:value5} , function(data){
-                $("#result").text(data);
-            });
-        }
-    </script>
+   </script>
 
 </head>
     
@@ -157,15 +148,15 @@ value5: <input type="text" id="value5" name="value5" value="" />
 
 <br /><br />
 
-<input type="button" id="submit_button" onclick="submit_post();" value="Отправить" />
+<input type="button" id="submit_button" onclick="submit_method('post');" value="Отправить" />
 
 </form>
 
 <br /><br />
 
 <div>
-    Результат выполнения запроса:<br />
-    <div id="result"></div>    
+    Результат выполнения запроса:
+    <div id="result"></div>
 </div>
 
 </body>
