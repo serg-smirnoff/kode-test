@@ -69,11 +69,17 @@ http://digitaled.ru/freeapi/public/api/detail_list
             
             var param1 = $("#param1").attr("value");
             var param2 = $("#param2").attr("value");
+            var param3 = $("#param3").attr("value");
+            var param4 = $("#param4").attr("value");
+            var param5 = $("#param5").attr("value");
 
             var value1 = $("#value1").attr("value");
             var value2 = $("#value2").attr("value");
+            var value3 = $("#value3").attr("value");
+            var value4 = $("#value4").attr("value");
+            var value5 = $("#value5").attr("value");
 
-            $.get('_get.php', {url:url,param1:value1,param2:value2}, function(data){
+            $.get('_get.php', {url:url,param1:param1,value1:value1,param2:param2,value2:value2,param3:param3,value3:value3,param4:param4,value4:value4,param5:param5,value5:value5}, function(data){
                 $("#result").text(data);
             });
         }
@@ -84,11 +90,17 @@ http://digitaled.ru/freeapi/public/api/detail_list
 
             var param1 = $("#param1").attr("value");
             var param2 = $("#param2").attr("value");
+            var param3 = $("#param3").attr("value");
+            var param4 = $("#param4").attr("value");
+            var param5 = $("#param5").attr("value");
 
             var value1 = $("#value1").attr("value");
             var value2 = $("#value2").attr("value");
+            var value3 = $("#value3").attr("value");
+            var value4 = $("#value4").attr("value");
+            var value5 = $("#value5").attr("value");
             
-            $.post('_post.php', {url:url,param1:value1,param2:value2}, function(data){
+            $.post('_post.php', {url:url,param1:param1,value1:value1,param2:param2,value2:value2,param3:param3,value3:value3,param4:param4,value4:value4,param5:param5,value5:value5} , function(data){
                 $("#result").text(data);
             });
         }
@@ -115,13 +127,28 @@ http://digitaled.ru/freeapi/public/api/detail_list
 
 <br /><br />
 
-param1: <input type="text" id="param1" name="param1" value="app_id" />
-value1: <input type="text" id="value1" name="value1" value="52" />
+param1: <input type="text" id="param1" name="param1" value="" />
+value1: <input type="text" id="value1" name="value1" value="" />
 
 <br /><br />
 
 param2: <input type="text" id="param2" name="param2"  value="" />
 value2: <input type="text" id="value2" name="value2" value="" />
+
+<br /><br />
+
+param3: <input type="text" id="param3" name="param3"  value="" />
+value3: <input type="text" id="value3" name="value3" value="" />
+
+<br /><br />
+
+param4: <input type="text" id="param4" name="param4"  value="" />
+value4: <input type="text" id="value4" name="value4" value="" />
+
+<br /><br />
+
+param5: <input type="text" id="param5" name="param5"  value="" />
+value5: <input type="text" id="value5" name="value5" value="" />
 
 <br /><br />
 
@@ -132,7 +159,7 @@ value2: <input type="text" id="value2" name="value2" value="" />
 <br /><br />
 
 <div>
-    Результат выполнения запроса   
+    Результат выполнения запроса:<br />
     <div id="result"></div>    
 </div>
 

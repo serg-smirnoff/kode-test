@@ -10,10 +10,22 @@
         if ( isset ($_GET["url"]) ) $url = $_GET["url"];
 
         $result_params_url = "?";
-
+    
+        $i = 0;
+ 
         foreach ($_GET as $k => $v){
             if (($k != 'method') && ($k != 'url')){
-                $result_params_url .= $k."=".$v."&";
+                $result_params_url .= $v;
+                
+                /*
+                 * generate params url for curl
+                 */
+                
+                if ($i % 2 == 0) $result_params_url .= "=";
+                if ($i % 2 != 0) $result_params_url .= "&";
+                
+                $i++;
+                
             }
         }
 
