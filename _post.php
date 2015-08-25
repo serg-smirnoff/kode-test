@@ -45,7 +45,7 @@
         $out_array = json_decode($out, true);       
         print_r ($out_array);
 
-        echo "<br /><br />Requested values (k => v) in responce (via strpos): <br />";
+        echo "<br /><br />Requested values (k => v) in responce: <br />";
         
         foreach ($_POST as $k => $v){
             if (($k != 'method') && ($k != 'url')){
