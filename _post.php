@@ -41,18 +41,18 @@
             
         }
 
-        echo "<br /><br />Formated (array) values or responce: <br />";        
+        echo "<br /><br />Formated (array) values of responce: <br />";        
         $out_array = json_decode($out, true);       
         print_r ($out_array);
-        
-        echo "<br /><br />Requested values (k => v) in responce: <br />";
+
+        echo "<br /><br />Requested values (k => v) in responce (via strpos): <br />";
         
         foreach ($_POST as $k => $v){
             if (($k != 'method') && ($k != 'url')){
                 if ($v != '')
                     if (strpos($out, $v) !== false ) echo $v.' - ok '; else echo $v.' - no ';
             }
-        }
+        }       
         
     } else 
         echo "http_pesponse_code: ".http_response_code();
